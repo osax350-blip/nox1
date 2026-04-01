@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
+import BrandLogo from './BrandLogo';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-12 pb-6">
+    <footer className="bg-gray-900 text-gray-300 pt-12 pb-6 dark:bg-slate-950 dark:text-slate-300 border-t border-gray-800 dark:border-slate-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-right">
           <div>
-            <h3 className="text-white text-xl font-bold mb-4">تقنيتي</h3>
+            <div className="flex items-center justify-end gap-2 mb-4">
+              <h3 className="text-white text-xl font-bold">futalix</h3>
+              <BrandLogo className="w-8 h-8" />
+            </div>
             <p className="text-sm">حلول رقمية متكاملة: استضافة سحابية، بوتات ذكية، وتطوير مواقع ومتاجر إلكترونية بجودة احترافية.</p>
           </div>
           <div>
@@ -24,7 +28,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li><Link to="/services" className="hover:text-indigo-400 transition">الخدمات</Link></li>
               <li><Link to="/contact" className="hover:text-indigo-400 transition">اتصل بنا</Link></li>
-              <li><a href="mailto:support@teqnyty.com" className="hover:text-indigo-400 transition">سياسة الخصوصية</a></li>
+              <li><a href="mailto:support@futalix.com" className="hover:text-indigo-400 transition">سياسة الخصوصية</a></li>
             </ul>
           </div>
           <div>
@@ -38,7 +42,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-6 text-center text-sm">
-          &copy; {new Date().getFullYear()} تقنيتي - جميع الحقوق محفوظة. تصميم وبرمجة بخبرة عربية.
+          &copy; {new Date().getFullYear()} futalix - جميع الحقوق محفوظة. تصميم وبرمجة بخبرة عربية.
         </div>
       </div>
     </footer>

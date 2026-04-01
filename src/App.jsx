@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -12,6 +12,7 @@ import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   const location = useLocation();
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     const fontId = 'google-font-cairo';
@@ -25,13 +26,26 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldUseDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+    setIsDark(shouldUseDark);
+    document.documentElement.classList.toggle('dark', shouldUseDark);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }, [isDark]);
+
+  useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50/30">
-      <Navbar />
-      <main>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50/30 dark:from-slate-950 dark:to-slate-900 transition-all duration-500">
+      <Navbar isDark={isDark} onToggleDark={() => setIsDark((prev) => !prev)} />
+      <main className="animate-page-enter">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />

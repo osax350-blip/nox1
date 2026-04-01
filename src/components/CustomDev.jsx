@@ -11,27 +11,27 @@ const customServices = [
 
 const CustomDev = () => {
   return (
-    <section id="custom" className="py-20 bg-gradient-to-r from-indigo-50 to-purple-50">
+    <section id="custom" className="py-20 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-slate-950 dark:to-slate-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">إنشاء مواقع ومتاجر حسب الطلب</h2>
-          <div className="w-24 h-1 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">نفهم رؤيتك ونحولها إلى مشروع رقمي ناجح، من الفكرة إلى الإطلاق والدعم المستمر</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-slate-100">إنشاء مواقع ومتاجر حسب الطلب</h2>
+          <div className="accent-divider mx-auto mt-4"></div>
+          <p className="mt-4 text-gray-600 dark:text-slate-400 max-w-2xl mx-auto">نفهم رؤيتك ونحولها إلى مشروع رقمي ناجح، من الفكرة إلى الإطلاق والدعم المستمر</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {customServices.map((item, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-center transition hover:shadow-xl">
+            <div key={idx} className="card-base p-6 flex flex-col items-center text-center">
               <div className="text-indigo-600 text-4xl mb-4">{item.icon}</div>
               <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-              <p className="text-gray-500 text-sm">{item.desc}</p>
+              <p className="text-gray-500 dark:text-slate-400 text-sm">{item.desc}</p>
             </div>
           ))}
         </div>
         <div className="mt-12 flex justify-center">
-          <div className="bg-white p-6 rounded-2xl shadow-lg max-w-2xl w-full text-center border border-indigo-100">
+          <div className="card-base max-w-2xl w-full text-center">
             <h3 className="text-2xl font-bold text-indigo-800">نفذ فكرتك مع فريق متخصص</h3>
-            <p className="mt-2 text-gray-600">نقدم لك استشارة مجانية لتحديد احتياجات مشروعك بالضبط، مع جدول زمني وأسعار تنافسية.</p>
-            <Link to="/contact?service=website" className="mt-4 inline-block bg-indigo-600 text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-indigo-700 transition cursor-pointer">
+            <p className="mt-2 text-gray-600 dark:text-slate-400">نقدم لك استشارة مجانية لتحديد احتياجات مشروعك بالضبط، مع جدول زمني وأسعار تنافسية.</p>
+            <Link to="/contact?service=website" className="mt-4 inline-block btn-primary text-sm px-6 py-2">
               تواصل مع خبير
             </Link>
           </div>

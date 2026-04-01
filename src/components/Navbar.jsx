@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { FiMenu, FiX } from 'react-icons/fi';
-import { FaServer } from 'react-icons/fa';
+import { FiMenu, FiMoon, FiSun, FiX } from 'react-icons/fi';
+import BrandLogo from './BrandLogo';
 
-const Navbar = () => {
+const Navbar = ({ isDark, onToggleDark }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
@@ -16,13 +16,13 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-200">
+    <nav className="bg-white/80 dark:bg-slate-950/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-200 dark:border-slate-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center gap-2">
-            <FaServer className="text-indigo-600 text-2xl" />
-            <span className="font-bold text-xl bg-gradient-to-r from-indigo-700 to-purple-700 bg-clip-text text-transparent">
-              تقنيتي
+            <BrandLogo className="w-9 h-9" />
+            <span className="font-bold text-xl bg-gradient-to-r from-indigo-600 to-indigo-700 bg-clip-text text-transparent">
+              futalix
             </span>
           </Link>
 
@@ -34,8 +34,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `cursor-pointer px-4 py-2 font-medium transition-all duration-200 rounded-lg ${
                     isActive
-                      ? 'text-indigo-700 bg-indigo-50'
-                      : 'text-gray-700 hover:text-indigo-600 hover:bg-indigo-50'
+                      ? 'text-indigo-700 dark:text-sky-300 bg-indigo-50 dark:bg-slate-800'
+                      : 'text-gray-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-sky-300 hover:bg-indigo-50 dark:hover:bg-slate-800'
                   }`
                 }
               >
@@ -44,20 +44,37 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={onToggleDark}
+              className="p-2 rounded-full border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-800 transition"
+              aria-label="تبديل الوضع الليلي"
+              type="button"
+            >
+              {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
+            </button>
             <Link
               to="/contact"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-full font-medium shadow-md transition cursor-pointer"
+              className="btn-primary text-sm px-5 py-2"
             >
               اطلب خدمة
             </Link>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={onToggleDark}
+              className="p-2 rounded-full border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-slate-200"
+              aria-label="تبديل الوضع الليلي"
+              type="button"
+            >
+              {isDark ? <FiSun size={18} /> : <FiMoon size={18} />}
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 focus:outline-none"
+              className="text-gray-700 dark:text-slate-200 focus:outline-none"
               aria-label="فتح أو إغلاق القائمة"
+              type="button"
             >
               {isOpen ? <FiX size={26} /> : <FiMenu size={26} />}
             </button>
@@ -74,8 +91,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `block px-4 py-2 font-medium rounded-lg ${
                     isActive
-                      ? 'text-indigo-700 bg-indigo-50'
-                      : 'text-gray-700 hover:text-indigo-600 hover:bg-indigo-50'
+                      ? 'text-indigo-700 dark:text-sky-300 bg-indigo-50 dark:bg-slate-800'
+                      : 'text-gray-700 dark:text-slate-200 hover:text-indigo-600 dark:hover:text-sky-300 hover:bg-indigo-50 dark:hover:bg-slate-800'
                   }`
                 }
               >

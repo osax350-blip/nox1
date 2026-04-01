@@ -26,19 +26,19 @@ const servicesData = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-20 bg-white dark:bg-slate-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">خدماتنا المتكاملة</h2>
-          <div className="w-24 h-1 bg-indigo-600 mx-auto mt-4 rounded-full"></div>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">نقدم حلولاً تقنية مبتكرة تناسب جميع أحجام الأعمال، من الأفراد إلى المؤسسات</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-slate-100">خدماتنا المتكاملة</h2>
+          <div className="accent-divider mx-auto mt-4"></div>
+          <p className="mt-4 text-gray-600 dark:text-slate-400 max-w-2xl mx-auto">نقدم حلولاً تقنية مبتكرة تناسب جميع أحجام الأعمال، من الأفراد إلى المؤسسات</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {servicesData.map((service, idx) => (
-            <div key={idx} className="bg-gray-50 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 text-right group">
+            <div key={idx} className="bg-gray-50 dark:bg-slate-800 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-slate-700 text-right group">
               <div className="text-indigo-600 mb-4 group-hover:scale-110 transition-transform">{service.icon}</div>
               <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{service.desc}</p>
+              <p className="text-gray-600 dark:text-slate-400 leading-relaxed">{service.desc}</p>
             </div>
           ))}
         </div>
