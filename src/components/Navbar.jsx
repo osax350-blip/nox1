@@ -6,6 +6,11 @@ import BrandLogo from './BrandLogo';
 const Navbar = ({ isDark, onToggleDark }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleThemeToggle = () => {
+    console.log('تم النقر على زر التبديل، الحالة الحالية:', isDark);
+    onToggleDark();
+  };
+
   const navLinks = [
     { name: 'الرئيسية', to: '/' },
     { name: 'الخدمات', to: '/services' },
@@ -46,7 +51,7 @@ const Navbar = ({ isDark, onToggleDark }) => {
 
           <div className="hidden md:flex items-center gap-3">
             <button
-              onClick={onToggleDark}
+              onClick={handleThemeToggle}
               className="p-2 rounded-full border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-800 transition"
               aria-label="تبديل الوضع الليلي"
               type="button"
@@ -63,7 +68,7 @@ const Navbar = ({ isDark, onToggleDark }) => {
 
           <div className="md:hidden flex items-center gap-2">
             <button
-              onClick={onToggleDark}
+              onClick={handleThemeToggle}
               className="p-2 rounded-full border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-slate-200"
               aria-label="تبديل الوضع الليلي"
               type="button"

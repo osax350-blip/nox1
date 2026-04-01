@@ -36,6 +36,7 @@ function App() {
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDark);
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    console.log('تم تحديث الثيم إلى:', isDark ? 'مظلم' : 'فاتح');
   }, [isDark]);
 
   useEffect(() => {
